@@ -1,4 +1,6 @@
 venv
-output/output.mp4
-data/sample_video.mp4
+output/
+data/
+pycache/
+.vscode/
 *.pt
