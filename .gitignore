@@ -1,3 +1,4 @@
 venv
-output.mp4
-sample_video.mp4
+output/output.mp4
+data/sample_video.mp4
+*.pt
