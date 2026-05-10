@@ -1,0 +1,22 @@
+[
+    {
+        "frame": 51,
+        "shot_type": "Backhand",
+        "player": "Player 1"
+    },
+    {
+        "frame": 102,
+        "shot_type": "Forehand",
+        "player": "Player 1"
+    },
+    {
+        "frame": 153,
+        "shot_type": "Backhand",
+        "player": "Player 1"
+    },
+    {
+        "frame": 204,
+        "shot_type": "Forehand",
+        "player": "Player 1"
+    }
+]

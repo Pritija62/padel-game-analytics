@@ -1,6 +1,7 @@
 venv
-output/
 data/
+output.mp4
+output_tracked.mp4
 __pycache__
 .vscode/
 *.pt

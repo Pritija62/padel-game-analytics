@@ -10,7 +10,7 @@ model = YOLO(str(BASE_DIR / "yolov8m.pt"))
 
 
 class PlayerIDMapper:
-    """Maps ByteTrack IDs to stable player IDs across frames."""
+    #Maps ByteTrack IDs to stable player IDs across frames."""
     def __init__(self, distance_threshold=100, appearance_threshold=30):
         self.bytetrack_to_player_id = {}  # Maps ByteTrack ID -> stable Player ID
         self.player_positions = {}  # Stores last known position of each player ID
@@ -57,9 +57,9 @@ player_mapper = PlayerIDMapper(distance_threshold=120)
 
 
 CONF_THRESHOLDS = {
-    "person":        0.65,   # Higher threshold to filter out false positives
-    "sports ball":   0.10,   # ball is tiny and hard, be lenient
-    "tennis racket": 0.15,   # racket is also tricky
+    "person":        0.45,   
+    "sports ball":   0.02,   
+    "tennis racket": 0.15,
     }
 
 
@@ -71,6 +71,7 @@ def track_objects(frame):
     results = model.track(
         frame,
         persist=True,
+        imgsz=640,
         tracker=str(BASE_DIR / "bytetrack.yaml")
     )
 
@@ -94,7 +95,7 @@ def track_objects(frame):
 
             track_id = int(box.id[0]) if box.id is not None else -1
 
-            # PLAYER
+            #  For Player
             if class_name == "person":
                 stable_player_id = player_mapper.get_player_id(
                     track_id,
@@ -104,12 +105,12 @@ def track_objects(frame):
                 color = (0, 255, 0)
                 label = f"Player {stable_player_id}"
 
-            # BALL
-            elif class_name == "sports ball":
+            #  For Ball
+            elif class_name == "ball":
                 color = (0, 0, 255)
                 label = f"Ball {track_id}"
 
-            # RACKET
+            #  For Racket
             elif class_name == "tennis racket":
                 color = (255, 0, 0)
                 label = f"Racket {track_id}"
