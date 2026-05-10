@@ -1,9 +1,9 @@
 tracker_type: bytetrack
-track_buffer: 60        # store history for 2 seconds (if 30 FPS)
-max_age: 60             # allow player to disappear for up to 2 seconds
+track_buffer: 120        # store history for 2 seconds (if 30 FPS)
+max_age: 300            # allow player to disappear for up to 5 seconds
 iou_threshold: 0.2      # more tolerant to box shifts
 track_low_thresh: 0.05
-track_high_thresh: 0.6
-new_track_thresh: 0.6
-match_thresh: 0.8
+track_high_thresh: 0.35
+new_track_thresh: 0.35
+match_thresh: 0.7
 fuse_score: True

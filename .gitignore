@@ -1,6 +1,6 @@
 venv
 output/
 data/
-pycache/
+__pycache__
 .vscode/
 *.pt
