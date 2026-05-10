@@ -23,7 +23,7 @@ out = cv2.VideoWriter(
     str(BASE_DIR.parent / "output" / "output.mp4"), #saving output video in this path
     fourcc,
     fps,
-    (height, width)
+    (width, height)
 )
 cv2.namedWindow("Output_tracked", cv2.WINDOW_NORMAL)
 cv2.resizeWindow("Output_tracked", 1080, 720)
@@ -74,6 +74,7 @@ while ret:
         shot_display_counter -= 1
     # Display the frame
     cv2.imshow("Output_tracked", frame)
+    frame = cv2.resize(frame, (width, height))
     out.write(frame)
 
     if cv2.waitKey(1) & 0xFF == ord('q'):
